@@ -1,0 +1,11 @@
+.sidebar-wrapper{
+    background-color: rgb(141, 180, 42);
+}
+
+.lema-link{
+    color: rgb(141, 180, 42);
+}
+
+.lema-link:hover{
+    color: rgb(224, 243, 198);
+}
