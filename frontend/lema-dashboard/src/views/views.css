@@ -1,0 +1,31 @@
+.content-form{
+    display: flex;
+    justify-content: center;
+}
+.form-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+}
+
+.form-group{
+    display: contents;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.input-style{
+    border-radius: 5px;
+    background-color: transparent;
+    height: 4%;
+    border-color: greenyellow;
+    color: rgb(156, 151, 151);
+    margin: 2%;
+}
+
+.button-style{
+    margin: 2%;
+    width: 60%;
+}

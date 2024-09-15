@@ -4,8 +4,25 @@ import Precios from "views/Precios.js";
 import Pedidos from "views/Pedidos.js";
 import Entregados from "views/Entregados";
 import Ventas from "views/Ventas";
+import Login from "views/Login";
+import Profile from "views/Profile";
+import Register from "views/Register";
 
 var routes = [
+  {
+    path: "/profile",
+    name: "profile",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Profile/>,
+    layout: "/admin",
+  },
+  {
+    path: "/login",
+    name: "login",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Login/>,
+    layout: "/admin",
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -46,6 +63,13 @@ var routes = [
     name: "Precios",
     icon: "tim-icons icon-align-center",
     component: <Precios/>,
+    layout: "/admin",
+  },
+  {
+    path: "/register",
+    name: "Registrarse",
+    icon: "tim-icons icon-align-center",
+    component: <Register/>,
     layout: "/admin",
   },
 ];
