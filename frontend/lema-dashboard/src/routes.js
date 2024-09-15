@@ -1,9 +1,9 @@
 import Dashboard from "views/Dashboard.js";
-import Icons from "views/Icons.js";
-import Notifications from "views/Notifications.js";
-import TableList from "views/TableList.js";
-import Typography from "views/Typography.js";
-import UserProfile from "views/UserProfile.js";
+import Presupuestos from "views/Presupuestos.js";
+import Precios from "views/Precios.js";
+import Pedidos from "views/Pedidos.js";
+import Entregados from "views/Entregados";
+import Ventas from "views/Ventas";
 
 var routes = [
   {
@@ -15,37 +15,37 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Presupuestar",
+    name: "Nuevo Presupuesto",
     icon: "tim-icons icon-align-left-2",
-    component: <Icons />,
+    component: <Presupuestos />,
     layout: "/admin",
   },
   {
     path: "/notifications",
     name: "Ventas",
     icon: "tim-icons icon-bank",
-    component: <Notifications />,
+    component: <Ventas />,
     layout: "/admin",
   },
   {
     path: "/user-profile",
-    name: "Pedidos",
+    name: "Nuevo Pedido",
     icon: "tim-icons icon-puzzle-10",
-    component: <UserProfile />,
+    component: <Pedidos />,
     layout: "/admin",
   },
   {
     path: "/tables",
     name: "Entregados",
     icon: "tim-icons icon-puzzle-10",
-    component: <TableList />,
+    component: <Entregados />,
     layout: "/admin",
   },
   {
     path: "/typography",
     name: "Precios",
     icon: "tim-icons icon-align-center",
-    component: <Typography />,
+    component: <Precios/>,
     layout: "/admin",
   },
 ];

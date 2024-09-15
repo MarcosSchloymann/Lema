@@ -9,3 +9,15 @@
 .lema-link:hover{
     color: rgb(224, 243, 198);
 }
+
+.presupuesto {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+}
+
+.formgroup{
+    width: 80%;
+}

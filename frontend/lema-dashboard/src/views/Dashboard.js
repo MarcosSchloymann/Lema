@@ -122,68 +122,11 @@ function Dashboard(props) {
             </Card>
           </Col>
         </Row>
-        {/* <Row>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Total Shipments</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Daily Sales</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                  3,500€
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Bar
-                    data={chartExample3.data}
-                    options={chartExample3.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Completed Tasks</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-send text-success" /> 12,100K
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample4.data}
-                    options={chartExample4.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row> */}
         <Row>
           <Col lg="4" md="12">
             <Card className="card-tasks">
               <CardHeader>
-                <h4 className="title d-inline">A confirmar</h4>
+                <h4 className="title d-inline">Presupuestos</h4>
                 <UncontrolledDropdown>
                   <DropdownToggle
                     caret
@@ -267,7 +210,7 @@ function Dashboard(props) {
           <Col lg="4" md="12">
             <Card className="card-tasks">
               <CardHeader>
-                <h4 className="title d-inline">Cobrados 50%</h4>
+                <h4 className="title d-inline">Pedidos</h4>
                 <UncontrolledDropdown>
                   <DropdownToggle
                     caret
@@ -351,7 +294,7 @@ function Dashboard(props) {
           <Col lg="4" md="12">
             <Card className="card-tasks">
               <CardHeader>
-                <h4 className="title d-inline">En Diseño</h4>
+                <h4 className="title d-inline">En Confeccion</h4>
                 <UncontrolledDropdown>
                   <DropdownToggle
                     caret
