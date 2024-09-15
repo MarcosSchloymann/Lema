@@ -44,7 +44,7 @@ export const login = async (req, res, next) => {
     var password = req.body.password;  
 
     var data = await getUsernameAndPassword(usuario);
-      console.log(data)
+      // console.log(data)
 
     if (data != undefined) {
       req.session.id_usuario = data.id;
@@ -64,11 +64,11 @@ export const login = async (req, res, next) => {
           })
         }
       })
-      console.log(data.id)
+      // console.log(data.id)
 
       const token = await createAccessToken({id:data.id})
       res.cookie('token', token)
-          console.log('login')
+          // console.log('login')
     } else {
      res.send('error')
     }
