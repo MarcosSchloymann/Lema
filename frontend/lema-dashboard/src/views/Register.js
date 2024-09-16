@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Form } from 'reactstrap'
-import { registerRequest } from '../api/auth'
+import { useAuth } from 'contexts/authContext'
+import { useNavigate } from 'react-router-dom'
 import './views.css'
 
 const Register = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState:{errors} } = useForm();
+    const {signUp, isAuthenticated} = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if(isAuthenticated) 
+        navigate("/admin/dashboard")
+      }, [isAuthenticated]);
+    
 
     const onSubmit = handleSubmit(async (values) => {
-        console.log(values);
-        const res = await registerRequest(values)
-        console.log(res)
+        signUp(values)
     })
 
     return (
@@ -25,40 +32,45 @@ const Register = () => {
                         className='input-style text-center'
                         type='text'
                         placeholder='Nombre'
-                        {...register("nombre")}
+                        {...register("nombre", {required:true})}
                     />
+                    {errors.nombre && (<p className='text-required'>Nombre is required</p>)}
                 </div>
                 <div className='form-group'>
                     <input
                         className='input-style text-center'
                         type='text'
                         placeholder='Apellido'
-                        {...register("apellido")}
+                        {...register("apellido", {required:true})}
                     />
+                    {errors.apellido && (<p className='text-required'>Apellido is required</p>)}
                 </div>
                 <div className='form-group'>
                     <input
                         className='input-style text-center'
                         type='text'
                         placeholder='Email'
-                        {...register("email")}
+                        {...register("email", {required:true})}
                     />
+                    {errors.email && (<p className='text-required'>Email is required</p>)}
                 </div>
                 <div className='form-group'>
                     <input
                         className='input-style text-center'
                         type='text'
                         placeholder='Usuario'
-                        {...register("user")}
+                        {...register("user", {required:true})}
                     />
+                    {errors.user && (<p className='text-required'>Username is required</p>)}
                 </div>
                 <div className='form-group'>
                     <input
                         className='input-style text-center'
                         type='password'
                         placeholder='Password'
-                        {...register("password")}
+                        {...register("password", {required: true})}
                     />
+                    {errors.password && (<p className='text-required'>Password is required</p>)}
                 </div>
                 {/* <FormGroup floating>
                     <input

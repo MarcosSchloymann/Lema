@@ -29,3 +29,8 @@
     margin: 2%;
     width: 60%;
 }
+
+.text-required{
+    color: red;
+    font-weight: bold;
+}

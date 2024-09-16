@@ -30,3 +30,10 @@ export const getUserById = async function (id) {
     return rows[0];
 }
 
+// export const getUserByEmail = async function (email) {
+//     var query = 'select * from usuarios where email = ?';
+//     var rows = await pool.query(query, [email]);
+//     return rows[0];
+// }
+
+

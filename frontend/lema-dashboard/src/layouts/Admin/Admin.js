@@ -98,6 +98,7 @@ function Admin(props) {
   //   return "Brand";
   // };
   return (
+   
     <BackgroundColorContext.Consumer>
       {({ color, changeColor }) => (
         <React.Fragment>
@@ -130,6 +131,7 @@ function Admin(props) {
         </React.Fragment>
       )}
     </BackgroundColorContext.Consumer>
+ 
   );
 }
 

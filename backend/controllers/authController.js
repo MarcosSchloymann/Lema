@@ -1,4 +1,4 @@
-import {getUserById, insertUser} from "./../models/usuariosModels.js"
+import { getUserById, insertUser} from "./../models/usuariosModels.js"
 import {getUsernameAndPassword} from "./../models/usuariosModels.js"
 import bcrybt, { compare } from 'bcrypt'
 import { createAccessToken } from "../libs/jwt.js";
@@ -19,13 +19,13 @@ export const register = async (req, res, next) => {
       const {user, password, nombre, apellido, email} = req.body
       if (user != "" && password != "" && nombre != "" && apellido != "" && email != "") {
         let passwordHash= await bcrybt.hash(password, 10)
-        await insertUser({user, password:passwordHash, nombre, apellido, email});
-        
-       const token = await createAccessToken({user:user})
-        
+          await insertUser({user, password:passwordHash, nombre, apellido, email});
+      const token = await createAccessToken({user:user})
       res.cookie('token', token)
           res.json({
-            message:"se creó el usuario"
+            message:"se creó el usuario",
+            nombre:nombre,
+            usuario:user,
           })
       } else {
         console.log('error')
