@@ -6,7 +6,8 @@ import AdminLayout from "layouts/Admin/Admin.js";
 import { AuthProvider } from './contexts/authContext';
 import Register from 'views/Register';
 import Login from 'views/Login';
-import ProtectRoutes from 'ProtectRoutes';
+import ProtectedRouter from 'ProtectedRouter';
+
 
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
             /> 
             <Route path="/admin/register" element={<Register/>} />
 
-            <Route element={<ProtectRoutes/>}>
+            <Route element={<ProtectedRouter/>}>
             <Route path="/admin/*" element={<AdminLayout />} />
             </Route>
 

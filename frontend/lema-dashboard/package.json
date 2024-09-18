@@ -14,9 +14,9 @@
     "js-cookie": "^3.0.5",
     "perfect-scrollbar": "1.5.5",
     "prop-types": "15.8.1",
-    "react": ">=16.8.0",
+    "react": "^18.3.1",
     "react-chartjs-2": "3.3.0",
-    "react-dom": ">=16.8.0",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-notification-alert": "0.0.13",
     "react-router-dom": "6.11.1",
@@ -35,10 +35,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -47,7 +43,7 @@
   ],
   "optionalDependencies": {
     "eslint-plugin-flowtype": "8.0.3",
-    "reactstrap": "8.10.1"
+    "reactstrap": "^8.10.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

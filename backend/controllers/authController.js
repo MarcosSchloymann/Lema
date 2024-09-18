@@ -52,10 +52,11 @@ export const login = async (req, res, next) => {
       bcrybt.compare(password, data.password, (err, resultado)=>{
         if(err) throw err;
         if(resultado){ 
-          res.status(200).json(
-            
-            ["ok"]
-          
+          res.status(200).json({
+            email:data.email,
+            user:data.user,
+            id:data.id
+          }
         )
         }else{
           res.status(401).json(
@@ -104,23 +105,23 @@ export const profile = async function(req, res, next){
 })
 }
 
-export const verifyToken = async (req, res) => {
-  const {token} = req.cookies
+// export const verifyToken = async (req, res) => {
+//   const {token} = req.cookies
 
-  if(!token) return res.status(401).json({message:"No autorizado"})
-  jwt.verify(token, TOKEN_SECRET, async (err, user)=> {
-    if(err) return res.status(401).json({
-      message:"No autorizado"
-    })
-    const userFound = await getUserById({id:data.id})
-    if(!userFound) return res.status(401).json({
-      message:"No autorizado"
-    })
-    return res.json({
-      id:userFound.id
-    })
-  })
-}
+//   if(!token) return res.status(401).json({message:"No autorizado"})
+//   jwt.verify(token, TOKEN_SECRET, async (err, user)=> {
+//     if(err) return res.status(401).json({
+//       message:"No autorizado"
+//     })
+//     const userFound = await getUserById({id:id})
+//     if(!userFound) return res.status(401).json({
+//       message:"No autorizado"
+//     })
+//     return res.json({
+//       id:userFound.id
+//     })
+//   })
+// }
 
 
 

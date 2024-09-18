@@ -37,16 +37,18 @@ export const AuthProvider = ({ children }) => {
     const signIn = async (user) => {
         try {
             const res = await loginRequest(user);
-            console.log(res.data)
+            console.log(res)
             setIsAuthenticated(true)
+            setUser(res.data)
+            console.log(res.data)
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data)
 
-            // if(Array.isArray(error.response.data)){
-            //     return setErrors(error.response.data)
-            // }
-            // // console.log(error.response.data)
-            // setErrors([error.response.data]);
+            if(Array.isArray(error.response.data)){
+                return setErrors([error.response.data])
+            }
+            console.log(error.response.data)
+            setErrors([error.response.data]);
         }
     };
 
