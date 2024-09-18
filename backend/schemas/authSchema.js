@@ -10,16 +10,20 @@ export const registerSchema = z.object({
     nombre: z.string({
         required_error: 'Name is required'
     }),
-    password: z.string({
-        required_error: 'Password is required'
-    }).min(6,
-        { required_error: 'Password must be at least 6 characters' }
-    ),
-    email: z.string({
-        required_error: 'Email is required'
-    }).email({
-        required_error: 'Invalid email'
-    }),
+    password: z
+    .string({
+        required_error: "Password is required",
+      })
+      .min(6, {
+        message: "Password must be at least 6 characters",
+      }),
+    email: z    
+      .string({
+        required_error: "Email is required",
+      })
+      .email({
+        message: "Email is not valid",
+      }),
 })
 
 export const loginSchema = z.object({

@@ -2,6 +2,8 @@ import { getUserById, insertUser} from "./../models/usuariosModels.js"
 import {getUsernameAndPassword} from "./../models/usuariosModels.js"
 import bcrybt, { compare } from 'bcrypt'
 import { createAccessToken } from "../libs/jwt.js";
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 
 // export const register = (req, res) => {
@@ -22,29 +24,26 @@ export const register = async (req, res, next) => {
           await insertUser({user, password:passwordHash, nombre, apellido, email});
       const token = await createAccessToken({user:user})
       res.cookie('token', token)
-          res.json({
-            message:"se creó el usuario",
-            nombre:nombre,
-            usuario:user,
-          })
+          res.json(
+            ["se creó el usuario"]
+          )
       } else {
         console.log('error')
       }
     } catch (error) {
-      res.status(500).json({
-        message:error.message
-      })
+      res.status(500).json([
+        error.message
+      ])
     }
   };
     
 export const login = async (req, res, next) => {
 
   try {
-    var usuario = req.body.user;  
-    var password = req.body.password;  
+    const usuario = req.body.user;  
+    const password = req.body.password;  
 
     var data = await getUsernameAndPassword(usuario);
-      // console.log(data)
 
     if (data != undefined) {
       req.session.id_usuario = data.id;
@@ -54,14 +53,14 @@ export const login = async (req, res, next) => {
         if(err) throw err;
         if(resultado){ 
           res.status(200).json(
-            {
-            message:"ok"
-          }
+            
+            ["ok"]
+          
         )
         }else{
-          res.status(401).json({
-            message:'Contraseña incorrecta'
-          })
+          res.status(401).json(
+            ['Contraseña incorrecta']
+          )
         }
       })
       // console.log(data.id)
@@ -70,7 +69,10 @@ export const login = async (req, res, next) => {
       res.cookie('token', token)
           // console.log('login')
     } else {
-     res.send('error')
+    //  res.send('El usuario no existe')
+     res.status(401).json(
+      ['El usuario no existe']
+    )
     }
   } catch (error) {
     console.log(error);
@@ -100,6 +102,24 @@ export const profile = async function(req, res, next){
     apellido,
     email
 })
+}
+
+export const verifyToken = async (req, res) => {
+  const {token} = req.cookies
+
+  if(!token) return res.status(401).json({message:"No autorizado"})
+  jwt.verify(token, TOKEN_SECRET, async (err, user)=> {
+    if(err) return res.status(401).json({
+      message:"No autorizado"
+    })
+    const userFound = await getUserById({id:data.id})
+    if(!userFound) return res.status(401).json({
+      message:"No autorizado"
+    })
+    return res.json({
+      id:userFound.id
+    })
+  })
 }
 
 

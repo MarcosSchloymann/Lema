@@ -10,10 +10,10 @@ import Register from "views/Register";
 
 var routes = [
   {
-    path: "/profile",
-    name: "profile",
-    icon: "tim-icons icon-chart-pie-36",
-    component: <Profile/>,
+    path: "/register",
+    name: "Registrarse",
+    icon: "tim-icons icon-align-center",
+    component: <Register/>,
     layout: "/admin",
   },
   {
@@ -21,6 +21,13 @@ var routes = [
     name: "login",
     icon: "tim-icons icon-chart-pie-36",
     component: <Login/>,
+    layout: "/admin",
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    icon: "tim-icons icon-chart-pie-36",
+    component: <Profile/>,
     layout: "/admin",
   },
   {
@@ -63,13 +70,6 @@ var routes = [
     name: "Precios",
     icon: "tim-icons icon-align-center",
     component: <Precios/>,
-    layout: "/admin",
-  },
-  {
-    path: "/register",
-    name: "Registrarse",
-    icon: "tim-icons icon-align-center",
-    component: <Register/>,
     layout: "/admin",
   },
 ];

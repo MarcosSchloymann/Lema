@@ -4,6 +4,9 @@ import React from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import AdminLayout from "layouts/Admin/Admin.js";
 import { AuthProvider } from './contexts/authContext';
+import Register from 'views/Register';
+import Login from 'views/Login';
+import ProtectRoutes from 'ProtectRoutes';
 
 const App = () => {
   return (
@@ -12,11 +15,20 @@ const App = () => {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/admin/*" element={<AdminLayout />} />
-            <Route
+          <Route
               path="*"
-              element={<Navigate to="/admin/dashboard" replace />}
+              element={<Login />}
             /> 
+            <Route
+              path="/admin/login"
+              element={<Login />}
+            /> 
+            <Route path="/admin/register" element={<Register/>} />
+
+            <Route element={<ProtectRoutes/>}>
+            <Route path="/admin/*" element={<AdminLayout />} />
+            </Route>
+
           </Routes>
         </BrowserRouter>
         </AuthProvider>
