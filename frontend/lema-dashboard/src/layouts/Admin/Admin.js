@@ -21,7 +21,7 @@ import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // core components
-// import AdminNavbar from "components/Navbars/AdminNavbar.js";
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 // import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
@@ -89,14 +89,14 @@ function Admin(props) {
       }
     });
   };
-  // const getBrandText = (path) => {
-  //   for (let i = 0; i < routes.length; i++) {
-  //     if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
-  //       return routes[i].name;
-  //     }
-  //   }
-  //   return "Brand";
-  // };
+  const getBrandText = (path) => {
+    for (let i = 0; i < routes.length; i++) {
+      if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
+        return routes[i].name;
+      }
+    }
+    return "Brand";
+  };
   return (
    
     <BackgroundColorContext.Consumer>
@@ -113,11 +113,11 @@ function Admin(props) {
               toggleSidebar={toggleSidebar}
             />
             <div className="main-panel" ref={mainPanelRef} data={color}>
-              {/* <AdminNavbar
+              <AdminNavbar
                 brandText={getBrandText(location.pathname)}
                 toggleSidebar={toggleSidebar}
                 sidebarOpened={sidebarOpened}
-              /> */}
+              />
               <Routes>
                 {getRoutes(routes)}
                 <Route
