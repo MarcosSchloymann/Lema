@@ -1,7 +1,7 @@
 import BackgroundColorWrapper from 'components/BackgroundColorWrapper/BackgroundColorWrapper'
 import ThemeContextWrapper from 'components/ThemeWrapper/ThemeWrapper'
 import React from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AdminLayout from "layouts/Admin/Admin.js";
 import { AuthProvider } from './contexts/authContext';
 import Register from 'views/Register';

@@ -10,6 +10,8 @@ const ProtectedRouter = () => {
         errores
     } = useAuth()
 
+    console.log(user, errores)
+
     if(!isAuthenticated) return <Navigate to="/login" replace/>
 
     return (

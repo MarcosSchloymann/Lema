@@ -22,8 +22,9 @@ const Login = () => {
     })
 
     const navigate = useNavigate();
-
+    
     useEffect(() => {
+        
         if (isAuthenticated)
             navigate("/admin/dashboard")
     }, [isAuthenticated]);
